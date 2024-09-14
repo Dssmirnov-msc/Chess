@@ -21,4 +21,20 @@ package chess;
  */
 public class Column {
     private Cell[] cells; 
+
+    public Column() {
+        init();
+    }
+
+    public void addCell(Cell cell, int j) {
+        cells[j] = cell;
+    }
+
+    private void init() {
+        cells = new Cell[Params.getDeskSize()];
+    }
+
+    public Cell getCell(int j) {
+        return cells[j];
+    }
 }

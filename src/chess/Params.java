@@ -34,17 +34,20 @@ public class Params {
     
     public static void handle_input(String[] args) throws Exception{
         int desk_size;
+        boolean use;
         if (args.length > 0) {
-            if (args.length > 3) {
+            if (args.length > 2) {
                 throw new Exception("Слишком много входных аргументов");
             } else{
                 desk_size = Integer.valueOf(args[0]);
+                if (args.length == 2) use = Boolean.getBoolean(args[1]); else use = false;
             }
         } else {
             System.out.println("Нет входных аргументов. Размер доски по умолчанию 8 x 8, значение ячейки заполняется по ее номеру");
             desk_size = 8;
+            use = false;
         }
-        params = new Params(desk_size, true);
+        params = new Params(desk_size, use);
     }
 
     static public int getDeskSize() {

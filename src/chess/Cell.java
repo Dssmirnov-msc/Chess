@@ -32,4 +32,13 @@ public class Cell {
         }
         if (even) letter = 'X'; else letter = 'Y';
     }
+
+    public int getValue() {
+        return value;
+    }
+
+    public char getLetter() {
+        return letter;
+    }
+    
 }

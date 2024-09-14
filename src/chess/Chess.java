@@ -28,7 +28,8 @@ public class Chess {
     public static void main(String[] args) throws Exception {
         Params.handle_input(args);
         
-        
+        MatrixDesk desk1 = new MatrixDesk();
+        ColumnDesk desk2 = new ColumnDesk();
     }
     
 }

@@ -30,7 +30,7 @@ public class MatrixDesk extends AbstractDesk{
     @Override
     void form_desk() {
         int deskSize = Params.getDeskSize();
-        
+        matrix = new Cell[deskSize][deskSize];
         int cellValue;
         boolean isEven; 
         for (int i = 0; i < deskSize; i++) {

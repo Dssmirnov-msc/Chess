@@ -27,4 +27,9 @@ public abstract class AbstractDesk {
     
     abstract void form_desk();
     abstract void draw_desk();
+    
+    protected int calcCellNum(int i, int j){
+        int n = (i)*Params.getDeskSize() + (j+1);
+        return n;
+    }
 }
