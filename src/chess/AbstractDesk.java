@@ -21,10 +21,10 @@ package chess;
  */
 public abstract class AbstractDesk {
     
-    public AbstractDesk(int desk_size){
-        form_desk(desk_size);
+    public AbstractDesk( ){
+        form_desk();
     } 
     
-    abstract void form_desk(int desk_size);
+    abstract void form_desk();
     abstract void draw_desk();
 }

@@ -23,12 +23,12 @@ public class ColumnDesk extends AbstractDesk{
     private Column[] cols;
     
     
-    public ColumnDesk(int desk_size) {
-        super(desk_size);
+    public ColumnDesk() {
+        super();
     }
 
     @Override
-    void form_desk(int desk_size) {
+    void form_desk() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

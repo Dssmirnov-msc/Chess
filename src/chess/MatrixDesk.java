@@ -23,13 +23,23 @@ public class MatrixDesk extends AbstractDesk{
     private Cell[][] matrix;
     
     
-    public MatrixDesk(int desk_size) {
-        super(desk_size);
+    public MatrixDesk() {
+        super();
     }
 
     @Override
-    void form_desk(int desk_size) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void form_desk() {
+        int deskSize = Params.getDeskSize();
+        
+        int cellValue;
+        boolean isEven; 
+        for (int i = 0; i < deskSize; i++) {
+            for (int j = 0; j < deskSize; j++) {
+                cellValue = (i)*deskSize + (j+1);
+                isEven = (i + j) % 2 == 0;
+                matrix[i][j] = new Cell(cellValue, isEven);
+            }
+        }
     }
 
     @Override

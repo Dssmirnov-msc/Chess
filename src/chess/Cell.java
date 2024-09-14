@@ -15,10 +15,21 @@
  */
 package chess;
 
+import java.util.Random;
+
 /**
  *
  * @author Dmitry
  */
 public class Cell {
-    private char value;
+    private int value;
+    private char letter;
+    Cell(int cellValue, boolean even) {
+        if (Params.isUseRandomCellValue()){
+            value = new Random().nextInt(10) + 1;
+        } else{
+            value = cellValue;
+        }
+        if (even) letter = 'X'; else letter = 'Y';
+    }
 }
