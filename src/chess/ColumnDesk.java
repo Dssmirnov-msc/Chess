@@ -28,29 +28,35 @@ public class ColumnDesk extends AbstractDesk{
     }
 
     @Override
-    void form_desk() {
-        cols = new Column[Params.getDeskSize()];
-        for (int i = 0; i < Params.getDeskSize(); i++) {
+    void formDesk() {
+        cols = new Column[size];
+        for (int i = 0; i < size; i++) {
             cols[i] = new Column();
             if (i % 2 == 0) formColumn(i); else formMirrowColumn(i); 
         }
     }
 
-    @Override
-    void draw_desk() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void formColumn(int i) {
-        for (int j = 0; j < Params.getDeskSize(); j++) {
+        for (int j = 0; j < size; j++) {
             cols[i].addCell( new Cell( calcCellNum(i,j), j%2==0),j);
         }
     }
 
     private void formMirrowColumn(int i) {
-        for (int j = 0; j < Params.getDeskSize(); j++) {
-            cols[i].addCell( new Cell( cols[i-1].getCell(Params.getDeskSize() - j).getValue(), j%2==1),j);
+        for (int j = 0; j < size; j++) {
+            cols[i].addCell( new Cell( cols[i-1].getCell(size - j-1).getValue(), j%2==1),j);
         }
+    }
+
+    @Override
+    protected void drawLetterBody() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    protected void drawNumBody() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

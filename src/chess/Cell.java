@@ -26,7 +26,7 @@ public class Cell {
     private char letter;
     Cell(int cellValue, boolean even) {
         if (Params.isUseRandomCellValue()){
-            value = new Random().nextInt(10) + 1;
+            value = new Random().nextInt(Params.getDeskSize()*Params.getDeskSize()) + 1;
         } else{
             value = cellValue;
         }

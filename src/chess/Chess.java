@@ -30,6 +30,10 @@ public class Chess {
         
         MatrixDesk desk1 = new MatrixDesk();
         ColumnDesk desk2 = new ColumnDesk();
+        
+        desk1.drawLetterDesk();
+        System.out.println("");
+        desk1.drawNumDesk();
     }
     
 }

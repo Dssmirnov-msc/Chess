@@ -28,14 +28,13 @@ public class MatrixDesk extends AbstractDesk{
     }
 
     @Override
-    void form_desk() {
-        int deskSize = Params.getDeskSize();
-        matrix = new Cell[deskSize][deskSize];
+    public void formDesk() {
+        matrix = new Cell[size][size];
         int cellValue;
         boolean isEven; 
-        for (int i = 0; i < deskSize; i++) {
-            for (int j = 0; j < deskSize; j++) {
-                cellValue = (i)*deskSize + (j+1);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                cellValue = calcCellNum(i, j);
                 isEven = (i + j) % 2 == 0;
                 matrix[i][j] = new Cell(cellValue, isEven);
             }
@@ -43,8 +42,29 @@ public class MatrixDesk extends AbstractDesk{
     }
 
     @Override
-    void draw_desk() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    protected void drawLetterBody() {
+        for (int j = 0; j < size; j++) {
+            String row = "| ";
+            row = row + space(j, letterFont) + " |";
+            for (int i = 0; i < size; i++) {
+                row = row + " " + space(matrix[i][j].getLetter(),letterFont) + " " + "|";
+            }
+            System.out.println(row);
+        }
+        
+    }
+
+    @Override
+    // Мне не нравится реализация
+    protected void drawNumBody() {
+        for (int j = 0; j < size; j++) {
+            String row = "| ";
+            row = row + space(j, numFont) + " |";
+            for (int i = 0; i < size; i++) {
+                row = row + " " + space(matrix[i][j].getValue(),numFont) + " " + "|";
+            }
+            System.out.println(row);
+        }
     }
     
 }

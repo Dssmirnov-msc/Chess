@@ -40,7 +40,10 @@ public class Params {
                 throw new Exception("Слишком много входных аргументов");
             } else{
                 desk_size = Integer.valueOf(args[0]);
-                if (args.length == 2) use = Boolean.getBoolean(args[1]); else use = false;
+                if (args.length == 2) 
+                    use = Boolean.parseBoolean(args[1]); 
+                else 
+                    use = false;
             }
         } else {
             System.out.println("Нет входных аргументов. Размер доски по умолчанию 8 x 8, значение ячейки заполняется по ее номеру");
