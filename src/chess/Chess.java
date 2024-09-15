@@ -34,6 +34,20 @@ public class Chess {
         desk1.drawLetterDesk();
         System.out.println("");
         desk1.drawNumDesk();
+        System.out.println("");
+        
+        System.out.println("Периметр Матричной доски: " + desk1.calcPerimetr());
+        System.out.println("След главной диагонали: " + desk1.calcMainDiag());
+        System.out.println("След побочной диагонали: " + desk1.calcBackDiag());
+        
+        desk2.drawLetterDesk();
+        System.out.println("");
+        desk2.drawNumDesk();
+        System.out.println("");
+        
+        System.out.println("Периметр Зеркальной доски: " + desk2.calcPerimetr());
+        System.out.println("След главной диагонали: " + desk2.calcMainDiag());
+        System.out.println("След побочной диагонали: " + desk2.calcBackDiag());
     }
     
 }

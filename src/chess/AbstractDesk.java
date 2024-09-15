@@ -76,5 +76,7 @@ public abstract class AbstractDesk {
     protected abstract void drawLetterBody();
     protected abstract void drawNumBody();
 
-    
+    public abstract int calcMainDiag();
+    public abstract int calcBackDiag();
+    public abstract int calcPerimetr();
 }

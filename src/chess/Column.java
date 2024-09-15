@@ -37,4 +37,12 @@ public class Column {
     public Cell getCell(int j) {
         return cells[j];
     }
+
+    public int calcLength() {
+        int L = 0;
+        for (Cell cell : cells) {
+            L = L + cell.getValue();
+        }
+        return L;
+    }
 }

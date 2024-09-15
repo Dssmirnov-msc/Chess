@@ -45,18 +45,60 @@ public class ColumnDesk extends AbstractDesk{
 
     private void formMirrowColumn(int i) {
         for (int j = 0; j < size; j++) {
-            cols[i].addCell( new Cell( cols[i-1].getCell(size - j-1).getValue(), j%2==1),j);
+            cols[i].addCell( new Cell( j%2==1, cols[i-1].getCell(size - j-1).getValue()),j);
         }
     }
 
     @Override
     protected void drawLetterBody() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int j = 0; j < size; j++) {
+            String row = "| ";
+            row = row + space(j, letterFont) + " |";
+            for (int i = 0; i < size; i++) {
+                row = row + " " + space(cols[i].getCell(j).getLetter(),letterFont) + " " + "|";
+            }
+            System.out.println(row);
+        }
     }
 
     @Override
     protected void drawNumBody() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int j = 0; j < size; j++) {
+            String row = "| ";
+            row = row + space(j, numFont) + " |";
+            for (int i = 0; i < size; i++) {
+                row = row + " " + space(cols[i].getCell(j).getValue(),numFont) + " " + "|";
+            }
+            System.out.println(row);
+        }
+    }
+
+    @Override
+    public int calcMainDiag() {
+        int diag = 0;
+        for (int i = 0; i < size; i++) {
+            diag = diag + cols[i].getCell(i).getValue();
+        }
+        return diag;
+    }
+
+    @Override
+    public int calcBackDiag() {
+        int diag = 0;
+        for (int i = 0; i < size; i++) {
+            diag = diag + cols[i].getCell(size - i - 1).getValue();
+        }
+        return diag;
+    }
+
+    @Override
+    public int calcPerimetr() {
+        int perimetr = cols[0].calcLength() + cols[size-1].calcLength();
+        for (int i = 1; i < (size-1); i++) {
+            perimetr = perimetr + cols[i].getCell(1).getValue() 
+                    + cols[i].getCell(size-1).getValue();
+        }
+        return perimetr;
     }
     
 }

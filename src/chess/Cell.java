@@ -32,6 +32,11 @@ public class Cell {
         }
         if (even) letter = 'X'; else letter = 'Y';
     }
+    Cell(boolean even, int cellValue){
+        value = cellValue;
+        if (even) letter = 'X'; else letter = 'Y';
+    }
+    
 
     public int getValue() {
         return value;

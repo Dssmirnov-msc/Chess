@@ -66,5 +66,45 @@ public class MatrixDesk extends AbstractDesk{
             System.out.println(row);
         }
     }
+
+    @Override
+    public int calcMainDiag() {
+        int diag = 0;
+        for (int i = 0; i < size; i++) {
+            diag = diag + matrix[i][i].getValue();
+        }
+        return diag;
+    }
+
+    @Override
+    public int calcBackDiag() {
+        int diag = 0;
+        for (int i = 0; i < size; i++) {
+            diag = diag + matrix[i][size - i -1].getValue();
+        }
+        return diag;
+    }
+
+    @Override
+    public int calcPerimetr() {
+        int sum = 0;
+
+        // Суммируем верхнюю строку
+        for (int j = 0; j < matrix[0].length; j++) {
+            sum += matrix[0][j].getValue();
+        }
+
+        // Суммируем нижнюю строку
+        for (int j = 0; j < matrix[matrix.length - 1].length; j++) {
+            sum += matrix[matrix.length - 1][j].getValue();
+        }
+
+        // Суммируем первый и последний столбцы, исключая углы
+        for (int i = 1; i < matrix.length - 1; i++) {
+            sum += matrix[i][0].getValue(); // Первый столбец
+            sum += matrix[i][matrix[i].length - 1].getValue(); // Последний столбец
+        }
+        return sum;
+    }
     
 }
